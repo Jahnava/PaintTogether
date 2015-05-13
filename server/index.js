@@ -20,8 +20,8 @@ var rooms = {
   Lobby: {
     name: 'Lobby',
     users: {
-      user1: {name: 'user1', color: 'blue'},
-      user2: {name: 'user2', color: 'green'}
+      user1: {name: 'user1', color: 'rgb(228,0,121)'},
+      user2: {name: 'user2', color: 'rgb(247,159,75)'}
     }
   }
 };
@@ -39,8 +39,6 @@ app.post('/newRoom', function(req,res) {
   rooms[room] = {name: room, users: {}};
   res.end(room);
 })
-
-
 
 io.on('connection', function (socket) {
   var addedUser = false;
@@ -60,49 +58,44 @@ io.on('connection', function (socket) {
   });
 
   socket.on('entered room', function (room) {
-    console.log(room)
-    console.log(socket.username)
-    console.log(socket.color)
     socket.room = room;
     rooms[room].users[socket.username] = {
       name: socket.username,
       color: socket.color
     }
-  });
-
-  socket.on('exited room', function() {
-    delete rooms[socket.room].users[socket.username];
-    socket.broadcast.emit('exited room', {
-      username: socket.username
+    socket.broadcast.emit('entered room', {
+      room: socket.room,
+      user: socket.username,
+      color: socket.color
     });
   });
 
-  // when the client emits 'typing', we broadcast it to others
-  // socket.on('typing', function () {
-  //   socket.broadcast.emit('typing', {
-  //     username: socket.username
-  //   });
-  // });
+  socket.on('exited room', function() {
+    exitedRoom();
+  });
 
-  // // when the client emits 'stop typing', we broadcast it to others
-  // socket.on('stop typing', function () {
-  //   socket.broadcast.emit('stop typing', {
-  //     username: socket.username
-  //   });
-  // });
+  socket.on('changed color', function(color) {
+    socket.color = color
+    rooms[socket.room].users[socket.username].color = color;
+    socket.broadcast.emit('changed color', {
+      room: socket.room,
+      user: socket.username,
+      color: color
+    });
+  });
 
-  // // when the user disconnects.. perform this
-  // socket.on('disconnect', function () {
-  //   // remove the username from global usernames list
-  //   if (addedUser) {
-  //     delete usernames[socket.username];
-  //     --numUsers;
+  socket.on('disconnect', function () {
+    console.log(socket.username + ' DISCONNECTED')
+    exitedRoom();
+  });
 
-  //     // echo globally that this client has left
-  //     socket.broadcast.emit('user left', {
-  //       username: socket.username,
-  //       numUsers: numUsers
-  //     });
-  //   }
-  // });
+  function exitedRoom() {
+    if (socket.room) {
+      delete rooms[socket.room].users[socket.username];
+      socket.broadcast.emit('exited room', {
+        room: socket.room,
+        user: socket.username
+      });
+    }
+  }
 });

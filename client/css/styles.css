@@ -14,6 +14,11 @@ html, input, h1, h2, h3, h4, h5, h6, p, a {
     sans-serif;
     color: white;
     text-decoration: none;
+    font-weight: 100;
+}
+
+p {
+  margin: 0px 0px;
 }
 
 .overlay {
@@ -94,3 +99,106 @@ html, input, h1, h2, h3, h4, h5, h6, p, a {
 .newRoom {
   margin-top: 50px;
 }
+
+.exit {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
+.exit:hover {
+  cursor: pointer;
+}
+
+.exitText {
+  color: black;
+  margin: 0px;
+  display: inline-block;
+  transform: translateY(-40%);
+  font-size: 2em;
+}
+
+.exitIcon {
+  width: 50px;
+}
+
+.panel {
+  top: 0px;
+  right: 0px;
+  position: fixed;
+  width: 320px;
+  height: 100%;
+  background-color: black;
+  padding: 10px 10px;
+}
+
+.user {
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.userColor {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.username {
+  font-size: 2.5em;
+  font-weight: 100;
+  display: inline-block;
+  transform: translateY(-50%);
+}
+
+.otherUser {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.otherUserColor {
+  width: 45px;
+  height: 45px;
+  border-radius: 23px;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.otherUsername {
+  font-size: 1.8em;
+  display: inline-block;
+  transform: translateY(-50%);
+  vertical-align: middle;
+}
+
+.chooseColor {
+  width: 280px;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+  bottom: 0;
+}
+
+.mediumCircle {
+  width: 55px;
+  height: 55px;
+  border-radius: 28px;
+  display: inline-block;
+  margin: 5px 5px;
+}
+
+.mediumCircle:hover {
+  cursor: pointer;
+}
+
+.changeColor {
+  font-size: 2.5em;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+

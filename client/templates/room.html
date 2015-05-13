@@ -1,1 +1,23 @@
-<canvas id="c" width="800" height="500"></canvas>
+<div class="wholeRoom">
+	<div class="canvas">
+		<canvas id="c" width="800" height="500"></canvas>
+		<a class="exit" href="#/hallway">
+			<img src="client/img/exit.png" class="exitIcon"></img>
+			<h1 class="exitText"> Exit Room </h1>
+		</a>
+	</div>
+	<div class="panel">
+		<div class="user">
+			<div style="background-color:{{room.user.color}}" class="userColor"></div> 
+			<p class='username'>{{room.user.name}}</p>
+		</div>
+		<div class="otherUser" ng-repeat="user in room.users">
+			<p class='otherUsername'>{{user.name}}</p>
+			<div style="background-color:{{user.color}}" class="otherUserColor"></div> 
+		</div>
+		<div class="chooseColor">
+		  <h3 class="title changeColor">Change Color?</h3>
+		  <div ng-repeat="color in room.colors" style="background-color:{{color}}" class="mediumCircle" ng-click="room.setColor(color)"></div>
+		</div>
+	</div>
+</div>
