@@ -1,0 +1,49 @@
+
+.navBar {
+  height: 50px;
+  width: 100%;
+  background-image: -webkit-linear-gradient(top, Peru, DarkOrange);
+  background-color: DarkOrange;
+  font-size: 1.5em;
+  position: fixed;
+  z-index: 1;
+  top: 0px; 
+}
+
+.navBar a {
+  font-size: 0.8em;
+  text-decoration: none;
+  color: lightGray;
+}
+
+.gridNav { 
+  position: fixed;
+  left: 10px;
+  top: 8px;
+}
+
+.newNav {
+  position: fixed;
+  right: 10px;
+  top: 8px;
+}
+
+.trashIcon {
+  position: fixed;
+  right: 50px;
+  top: 8px;  
+  color: lightGray;
+}
+
+.navBar {
+  .onPage {
+    color: white; 
+  }
+}
+
+.navTitle {
+  margin-top: 5px;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+}

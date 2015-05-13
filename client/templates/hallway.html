@@ -1,0 +1,12 @@
+<div class="overlay">
+	<div class="hallway">
+		<div class="chooseRoom">
+			<h1 class="title"> Choose a room... </h1>
+				<button ng-repeat="room in hall.rooms" class="roomButton" ng-click="hall.enterRoom(room.name)">{{room.name}}</button>
+		</div>
+		<h1 class="title newRoom"> ...or create a new one </h1>
+		<form ng-submit="hall.createRoom(room)">
+	    <input class="roomInput" type="text" maxlength="14" ng-model="room"/>
+	  </form>
+	 </div>
+</div>

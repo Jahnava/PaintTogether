@@ -1,0 +1,221 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  font-family: 'Indie Flower', cursive;
+  height: 100%; }
+
+body {
+  background-color: #ccc; }
+
+.vertAlign {
+  position: relative;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+.largeGlyph {
+  font-size: 30px; }
+
+.grid, .newPost, .viewPost {
+  position: relative;
+  margin-top: 50px;
+  height: calc(100vh - 50px); }
+
+.grayLink, .grayLink:hover, .grayLink:focus {
+  text-align: center;
+  text-decoration: none;
+  color: rgba(40, 40, 40, 0.7);
+  text-shadow: 0px 0px 10px white; }
+
+.navBar {
+  height: 50px;
+  width: 100%;
+  background-image: -webkit-linear-gradient(top, Peru, DarkOrange);
+  background-color: DarkOrange;
+  font-size: 1.5em;
+  position: fixed;
+  z-index: 1;
+  top: 0px; }
+
+.navBar a {
+  font-size: 0.8em;
+  text-decoration: none;
+  color: lightGray; }
+
+.gridNav {
+  position: fixed;
+  left: 10px;
+  top: 8px; }
+
+.newNav {
+  position: fixed;
+  right: 10px;
+  top: 8px; }
+
+.trashIcon {
+  position: fixed;
+  right: 50px;
+  top: 8px;
+  color: lightGray; }
+
+.navBar .onPage {
+  color: white; }
+
+.navTitle {
+  margin-top: 5px;
+  color: white;
+  text-align: center;
+  font-size: 30px; }
+
+.noNotes {
+  text-align: center; }
+
+.fade {
+  background-color: #323232;
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
+  pointer-events: none; }
+
+.allPosts {
+  padding: 20px 20px 20px 0; }
+
+.sort {
+  font-family: arial;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center; }
+
+.sortBar {
+  margin-top: 5px; }
+
+.filterText {
+  height: 26px; }
+
+.post {
+  width: 200px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  word-wrap: break-word;
+  z-index: 20; }
+
+.noteIcon {
+  width: 65%; }
+
+.dragOptions {
+  position: fixed;
+  bottom: -80px;
+  width: 100vw;
+  z-index: 2; }
+
+.drop {
+  height: 55px;
+  width: 33%;
+  display: inline-block;
+  color: white;
+  z-index: 20;
+  text-align: center;
+  font-size: 35px;
+  margin: 0 0px 0 0px; }
+
+.left {
+  float: left; }
+
+.middle {
+  margin-left: 2px; }
+
+.right {
+  float: right; }
+
+.highlight {
+  color: green; }
+
+.highlightRed {
+  color: red; }
+
+@media screen and (max-width: 600px) {
+  .allPosts {
+    padding: 20px 3vw 0 3vw; }
+  .post {
+    width: 46vw; }
+  .noteIcon {
+    width: 33vw; }
+  .postTitle {
+    margin-top: 7px;
+    font-size: 6vw; } }
+
+.viewEdit {
+  float: right;
+  text-decoration: none;
+  margin: 0 auto;
+  cursor: pointer;
+  outline: none;
+  font-family: arial; }
+  .viewEdit a {
+    color: #282828; }
+
+.viewPost {
+  padding: 20px 20px; }
+
+.viewTitle {
+  text-align: center; }
+
+.viewMsg {
+  white-space: pre-wrap;
+  font-size: 1.2em; }
+
+.newPost {
+  padding-top: 10px; }
+
+.newPostMsg {
+  width: 80%;
+  height: 55vh;
+  font-size: 1.7em;
+  display: block;
+  margin: 20px auto;
+  vertical-align: top;
+  resize: none; }
+
+.newPostTitle {
+  width: 50%;
+  font-size: 1.5em;
+  display: block;
+  margin: 20px auto;
+  text-align: center; }
+
+.savePost {
+  color: #c9c9c9;
+  font-size: 26px;
+  background: #3d3d3d;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  outline: none; }
+
+.savePost:hover, .savePost:focus {
+  color: white;
+  background: #ff9500;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none; }
+
+.postSaved {
+  color: green;
+  text-align: center; }
+
+.empty {
+  color: red;
+  text-align: center; }
+
+.trash {
+  color: black;
+  position: absolute;
+  left: 10px;
+  top: 10px; }

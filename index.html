@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="en" ng-app="drawTogether" class="no-js">
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <link href="client/css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+		<div ng-controller="MainCtrl as main">
+			<div ng-view></div>
+		</div>
+
+		<script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+		<script src="lib/fabric.js-master/dist/fabric.js"></script>
+    <script src="client/app.js"></script>
+    <script src="client/js/MainCtrl.js"></script>
+    <script src="client/js/HallwayCtrl.js"></script>
+    <script src="client/js/RoomCtrl.js"></script>
+    <script src="client/js/User.js"></script>
+	</body>
+</html>

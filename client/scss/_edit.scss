@@ -1,0 +1,58 @@
+.newPost {
+  padding-top: 10px;
+}
+
+.newPostMsg {
+  width: 80%;
+  height: 55vh;
+  font-size: 1.7em;
+  display: block;
+  margin: 20px auto;
+  vertical-align: top;
+  resize: none;
+}
+
+.newPostTitle {
+  width: 50%;
+  font-size: 1.5em;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.savePost {
+  color: #c9c9c9;
+  font-size: 26px;
+  background: #3d3d3d;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  outline: none;
+}
+
+.savePost:hover, .savePost:focus {
+  color: white;
+  background: #ff9500;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.postSaved {
+  color: green;
+  text-align: center;
+}
+
+.empty {
+  color: red;
+  text-align: center;
+}
+
+.trash {
+  color: black;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}

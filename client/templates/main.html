@@ -1,0 +1,15 @@
+<div class="overlay" ng-if="!colorSet">
+	<div class="colorInput">
+	  <h3 class="title">Choose a color</h3>
+	  <div ng-repeat="color in main.colors" style="background-color:{{color}}" class="circle" ng-click="main.setColor(color)"></div>
+	</div>
+</div>
+
+<div class="overlay" ng-if="!usernameSet">
+	<div class="userInput">
+	  <h3 class="title">What's your nickname?</h3>
+	  <form ng-submit="main.setUsername(user)">
+	    <input class="usernameInput" type="text" maxlength="14" ng-model="user"/>
+	  </form>
+	</div>
+</div>

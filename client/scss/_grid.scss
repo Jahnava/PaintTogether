@@ -1,0 +1,99 @@
+.noNotes {
+  text-align: center;
+}
+
+.fade {
+  background-color: rgb(50,50,50);
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.allPosts {
+  padding: 20px 20px 20px 0;
+}
+
+.sort {
+  font-family: arial;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sortBar {
+  margin-top: 5px;
+}
+
+.filterText {
+  height: 26px;
+}
+
+.post {
+  width: 200px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  word-wrap: break-word;
+  z-index: 20;
+}
+
+.noteIcon {
+  width: 65%;
+}
+
+
+.dragOptions {
+  position: fixed;
+  bottom: -80px;
+  width: 100vw;
+  z-index: 2;
+}
+
+.drop {
+  height: 55px;
+  width: 33%;
+  display: inline-block;
+  color: white;
+  z-index: 20;
+  text-align: center;
+  font-size: 35px;
+  margin: 0 0px 0 0px;
+}
+
+.left {
+  float: left;
+}
+
+.middle {
+  margin-left: 2px;
+}
+
+.right {
+  float: right;
+}
+
+.highlight {
+  color: green;
+}
+
+.highlightRed {
+  color: red;
+}
+
+@media screen and (max-width: 600px) {
+  .allPosts {
+    padding: 20px 3vw 0 3vw;
+  }
+  .post {
+    width: 46vw;
+  }
+  .noteIcon {
+    width: 33vw;
+  }
+  .postTitle {
+    margin-top: 7px;
+    font-size: 6vw;
+  }
+} 
