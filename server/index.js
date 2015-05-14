@@ -33,6 +33,12 @@ app.get('/room/:id', function(req,res) {
   res.end(JSON.stringify(rooms[req.params.id]));
 })
 
+app.delete('/room/:id', function(req,res) {
+  var room = req.params.id;
+  delete rooms[room];
+  res.end(room)
+})
+
 app.post('/newRoom', function(req,res) {
   var room = req.body.room
   rooms[room] = {name: room, users: {}, canvas: ''};
@@ -105,7 +111,7 @@ io.on('connection', function (socket) {
   /************* HELPER FUNCTIONS *************/
 
   function exitedRoom() {
-    if (socket.room) {
+    if (socket.room && rooms[socket.room]) {
       delete rooms[socket.room].users[socket.id];
       socket.broadcast.emit('exited room', {
         room: socket.room,

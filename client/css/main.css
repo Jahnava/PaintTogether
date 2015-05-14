@@ -72,6 +72,9 @@ p {
   right: 355px;
   color: black; }
 
+.delete:hover {
+  cursor: pointer; }
+
 .exitText, .clearText, .deleteText {
   color: black;
   margin: 0px;
