@@ -67,8 +67,15 @@
   width: 50px;
 }
 
-.eraserIcon {
+.bucketIcon {
   width: 60px;
+}
+
+.eraserIcon {
+  width: 40px;
+  position: relative;
+  top: 47%;
+  transform: translateY(-50%);
 }
 
 .user {

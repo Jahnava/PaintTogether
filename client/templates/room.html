@@ -1,6 +1,6 @@
 <div class="wholeRoom">
 	<div class="canvas">
-		<canvas id="canvas" width="1000" height="800"></canvas>
+		<canvas id="canvas" width="1200" height="900"></canvas>
 		<a class="exit" href="#/hallway">
 			<img src="client/img/exit.png" class="exitIcon"></img>
 			<h1 class="exitText"> Exit Room </h1>
@@ -10,7 +10,7 @@
 			<img src="client/img/delete.png" class="deleteIcon"></img>
 		</div>
 		<div class="clear" ng-click="room.clearCanvas()">
-		<img src="client/img/eraser.png" class="eraserIcon"></img>
+		<img src="client/img/bucket.png" class="bucketIcon"></img>
 			<h1 class="clearText">Clear Canvas</h1>
 		</div>
 	</div>
@@ -25,7 +25,9 @@
 		</div>
 		<div class="chooseColor">
 		  <h3 class="title changeColor">Change Color?</h3>
-		  <div ng-repeat="color in room.colors" style="background-color:{{color}}" class="mediumCircle" ng-click="room.setColor(color)"></div>
+		  <div ng-repeat="color in room.colors" style="background-color:{{color}}" class="mediumCircle" ng-click="room.setColor(color)">
+		  	<img src="client/img/eraser.png" class="eraserIcon" ng-if="color==='lightgray'"></img>
+		  </div>
 		</div>
 	</div>
 </div>
