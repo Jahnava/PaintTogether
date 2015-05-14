@@ -21,6 +21,8 @@ var rooms = {
   }
 };
 
+/************* ROUTES *************/
+
 app.get('/hallway', function(req,res) {
   var roomList = [];
   for (var room in rooms) { roomList.push(room); }
@@ -37,30 +39,27 @@ app.post('/newRoom', function(req,res) {
   res.end(room);
 })
 
+/************* SOCKETS *************/
+
 io.on('connection', function (socket) {
-  var addedUser = false;
-  socket.on('new message', function (data) {
-    socket.broadcast.emit('new message', {
-      username: socket.username,
-      message: data
-    });
-  });
 
   socket.on('add user', function (user) {
     socket.username = user.name;
     socket.color = user.color
+    socket.id = user.id
     addedUser = true;
   });
 
   socket.on('entered room', function (room) {
     socket.room = room;
-    rooms[room].users[socket.username] = {
+    rooms[room].users[socket.id] = {
       name: socket.username,
       color: socket.color
     }
     socket.broadcast.emit('entered room', {
       room: socket.room,
-      user: socket.username,
+      name: socket.username,
+      id: socket.id,
       color: socket.color
     });
   });
@@ -71,10 +70,11 @@ io.on('connection', function (socket) {
 
   socket.on('changed color', function(color) {
     socket.color = color
-    rooms[socket.room].users[socket.username].color = color;
+    rooms[socket.room].users[socket.id].color = color;
     socket.broadcast.emit('changed color', {
       room: socket.room,
       user: socket.username,
+      id: socket.id,
       color: color
     });
   });
@@ -102,12 +102,15 @@ io.on('connection', function (socket) {
   });
 
 
+  /************* HELPER FUNCTIONS *************/
+
   function exitedRoom() {
     if (socket.room) {
-      delete rooms[socket.room].users[socket.username];
+      delete rooms[socket.room].users[socket.id];
       socket.broadcast.emit('exited room', {
         room: socket.room,
-        user: socket.username
+        user: socket.username,
+        id: socket.id
       });
     }
   }

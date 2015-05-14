@@ -1,0 +1,66 @@
+.userInput, .colorInput, .hallway {
+  height: 100px;
+  margin-top: -100px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.usernameInput, .roomInput {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  outline: none;
+  padding-bottom: 15px;
+  text-align: center;
+  width: 400px;
+  font-size: 200%;
+  letter-spacing: 3px;
+  color: #fff;
+  font-weight: 100;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  display: inline-block;
+  margin: 0 10px 30px 0;
+}
+
+.circle:hover {
+  cursor: pointer;
+}
+
+.title {
+  font-size: 200%;
+  font-weight: 100;
+}
+
+.chooseRoom {
+  margin: 0 auto;
+  width: 70%;
+}
+
+.roomButton {
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  margin: 0 5px 10px 5px;
+  background-color: black;
+  border: solid #3498db 2px;
+}
+
+.roomButton:hover {
+  cursor: pointer;
+  border: solid black 2px;
+  background: #3498db;
+}
+
+.newRoom {
+  margin-top: 50px;
+}

@@ -1,7 +1,7 @@
 angular.module('drawTogether.hall', [])
 .controller('HallwayCtrl', ['User','$scope', '$location', '$http', function(User, $scope, $location, $http) {
 	
-	if (!User.name) {$location.path('/index')}
+	if (!User.name) { $location.path('/index'); }
 	
 	var _this = this;
 
@@ -18,7 +18,7 @@ angular.module('drawTogether.hall', [])
   }
 
 	this.createRoom = function(room) {
-		console.log(room);
+		room = cleanInput(room);
   	User.setRoom(room);
 		$http.post('/newRoom', {room: room}).success(function(data, status) {
 			$location.path('/room/' + encodeURIComponent(room));
@@ -26,6 +26,10 @@ angular.module('drawTogether.hall', [])
 	  .error(function(data, status) {
 	    console.log("Could not post room", status);
 	  });
+	}
+
+	function cleanInput (input) {
+	  return $('<div/>').text(input).text();
 	}
 
 }]);

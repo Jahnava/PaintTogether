@@ -14,18 +14,18 @@ angular.module('drawTogether.room', [])
 	this.user = User;
 	this.colors = ['rgb(21,177,240)','rgb(52,173,101)', 'rgb(228,0,121)', 'rgb(247,159,75)', 'rgb(255,242,9)', 'rgb(113,73,151)', 'rgb(41,41,41)', 'rgb(229,0,28)' ]
 
+	// User exits room if they navigate away from page
 	$scope.$on('$destroy', function() {
 		socket.emit('exited room');
 	});
 
+	// Set canvas  defaults
 	var canvas = document.getElementById('canvas');
 	var ctx = canvas.getContext('2d');
 	ctx.fillStyle = "solid";
 	ctx.lineWidth = 5;
 	ctx.lineCap = "round";
 	ctx.strokeStyle = User.color;
-	
-
 	var drawing = false;
 
 	function draw(xFrom, yFrom, xTo, yTo, color) {
@@ -42,8 +42,8 @@ angular.module('drawTogether.room', [])
 	})
 
 	window.addEventListener('mouseup', function(e) {
+	  if (drawing) { saveCanvas(); }
 	  drawing = false;
-	  saveCanvas();
 	})
 
 	canvas.addEventListener('mousemove', function(e) {
@@ -72,10 +72,6 @@ angular.module('drawTogether.room', [])
 	  }
 	});
 
-	socket.on('draw', function(data) {
-    draw(data.x1, data.y1, data.x, data.y, data.color);
-  });
-
 	this.setColor = function(color) {
 		User.setColor(color);
 		socket.emit('changed color', color)
@@ -93,7 +89,7 @@ angular.module('drawTogether.room', [])
 	function getRoomState() {
 		$http.get('/room/' + User.room).success(function(data, status) {
 			var users = data.users
-			delete users[User.name];
+			delete users[User.id];
 			_this.users = users;
 			if (data.canvas) {
 				console.log(data.canvas);
@@ -116,10 +112,13 @@ angular.module('drawTogether.room', [])
 		});
 	}
 
+
+	/************* SOCKET LISTENERS *************/
+
 	socket.on('entered room', function (data){
-		if (data.room === User.room) { 
-			_this.users[data.user] = {
-				name: data.user,
+		if (data.room === User.room && data.id !== User.id) { 
+			_this.users[data.id] = {
+				name: data.name,
 				color: data.color
 			}
 	    $scope.$apply();
@@ -128,18 +127,21 @@ angular.module('drawTogether.room', [])
 
 	socket.on('exited room', function (data){
 		if (data.room === User.room) { 
-			delete _this.users[data.user];
+			delete _this.users[data.id];
 	    $scope.$apply();
 		}
 	});
 
 	socket.on('changed color', function (data){
-		console.log(data);
-		if (data.room === User.room) { 
-			_this.users[data.user].color = data.color
+		if (data.room === User.room && data.id !== User.id) { 
+			_this.users[data.id].color = data.color
 	    $scope.$apply();
 		}
 	});
+
+	socket.on('draw', function(data) {
+    draw(data.x1, data.y1, data.x, data.y, data.color);
+  });
 
 	socket.on('clear', function (data){
 		if (data.room === User.room) {
