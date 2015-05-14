@@ -27,7 +27,27 @@ p {
   margin: -10px -8px; }
 
 .wholeRoom {
+  background-color: lightgray;
+  float: left;
+  width: 100%; }
+
+#canvas {
+  margin: 0px 0px;
+  text-align: center;
   background-color: lightgray; }
+
+.canvas {
+  overflow: hidden;
+  float: left; }
+
+.panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 800px;
+  background-color: black;
+  padding: 10px 10px; }
 
 .exit {
   position: fixed;
@@ -46,27 +66,24 @@ p {
 .clear:hover {
   cursor: pointer; }
 
-.exitText, .clearText {
+.delete {
+  position: absolute;
+  top: 20px;
+  right: 355px;
+  color: black; }
+
+.exitText, .clearText, .deleteText {
   color: black;
   margin: 0px;
   display: inline-block;
   transform: translateY(-40%);
   font-size: 2em; }
 
-.exitIcon {
+.exitIcon, .deleteIcon {
   width: 50px; }
 
 .eraserIcon {
   width: 60px; }
-
-.panel {
-  top: 0px;
-  right: 0px;
-  position: absolute;
-  width: 320px;
-  height: 800px;
-  background-color: black;
-  padding: 10px 10px; }
 
 .user {
   height: 100px;

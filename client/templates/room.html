@@ -5,6 +5,10 @@
 			<img src="client/img/exit.png" class="exitIcon"></img>
 			<h1 class="exitText"> Exit Room </h1>
 		</a>
+		<div class="delete" ng-click="room.deleteRoom()" ng-if="room.lastUser && room.user.room!=='Lobby'">
+			<h1 class="deleteText">Delete Room</h1>
+			<img src="client/img/delete.png" class="deleteIcon"></img>
+		</div>
 		<div class="clear" ng-click="room.clearCanvas()">
 		<img src="client/img/eraser.png" class="eraserIcon"></img>
 			<h1 class="clearText">Clear Canvas</h1>

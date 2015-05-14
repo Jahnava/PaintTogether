@@ -1,6 +1,7 @@
 angular.module('drawTogether.room', [])
 .controller('RoomCtrl', ['User','$scope', '$location', '$http', function(User, $scope, $location, $http) {
 
+
 	var socket;
 
 	if (!User.name) { $location.path('/index') }
@@ -12,6 +13,7 @@ angular.module('drawTogether.room', [])
 
 	_this = this;
 	this.user = User;
+	this.lastUser = false;
 	this.colors = ['rgb(21,177,240)','rgb(52,173,101)', 'rgb(228,0,121)', 'rgb(247,159,75)', 'rgb(255,242,9)', 'rgb(113,73,151)', 'rgb(41,41,41)', 'rgb(229,0,28)' ]
 
 	// User exits room if they navigate away from page
@@ -77,6 +79,7 @@ angular.module('drawTogether.room', [])
 		socket.emit('changed color', color)
 		ctx.strokeStyle = color;
 		this.user = User;
+		this.test = true;
 	}
 
 	this.clearCanvas = function() {
@@ -91,6 +94,8 @@ angular.module('drawTogether.room', [])
 			var users = data.users
 			delete users[User.id];
 			_this.users = users;
+			if (!Object.keys(users).length) { _this.lastUser = true; }
+			// Load/render canvas state
 			if (data.canvas) {
 				console.log(data.canvas);
 				var imageObj = new Image();
@@ -121,6 +126,7 @@ angular.module('drawTogether.room', [])
 				name: data.name,
 				color: data.color
 			}
+			Object.keys(_this.users).length ? _this.lastUser = false : _this.lastUser = true;
 	    $scope.$apply();
 		}
 	});
@@ -128,6 +134,7 @@ angular.module('drawTogether.room', [])
 	socket.on('exited room', function (data){
 		if (data.room === User.room) { 
 			delete _this.users[data.id];
+			Object.keys(_this.users).length ? _this.lastUser = false : _this.lastUser = true;
 	    $scope.$apply();
 		}
 	});
