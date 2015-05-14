@@ -18,7 +18,7 @@ angular.module('drawTogether.room', [])
 		socket.emit('exited room');
 	});
 
-	var offset, x, y;
+	var offset, x, y, x1, y1;
 	var canvas = document.getElementById('canvas');
 	var ctx = canvas.getContext('2d');
 	ctx.fillStyle = "solid";
@@ -34,44 +34,43 @@ angular.module('drawTogether.room', [])
 	  return ctx.stroke();
 	};
 
+	function realDraw(xFrom, yFrom, xTo, yTo, color) {
+		ctx.beginPath(); 
+		ctx.strokeStyle = color;
+		ctx.moveTo(xFrom, yFrom);
+		ctx.lineTo(xTo, yTo);
+		ctx.stroke();
+		ctx.closePath();
+	}
+
 	canvas.addEventListener('mousedown', function(e) {
-	  ctx.beginPath();
 	  drawing = true;
 	})
 
 	canvas.addEventListener('mouseup', function(e) {
 	  drawing = false;
-	  socket.emit('drawEnd');
-	  ctx.closePath();
 	})
 
 	canvas.addEventListener('mousemove', function(e) {
 	  if (drawing) {
+	  	x1 = e.offsetX - e.movementX;
+	  	y1 = e.offsetY - e.movementY;
 	    x = e.offsetX;
 	    y = e.offsetY;
-	    draw(x, y);
-	    socket.emit('drawClick', {
+	    realDraw(x1, y1, x, y, User.color);
+	    socket.emit('draw', {
 	      x: x,
 	      y: y,
+	      x1: x1,
+	      y1: y1,
+	      color: User.color
 	    });
 	  }
 	});
 
 	socket.on('draw', function(data) {
-		ctx.strokeStyle = data.color;
-    draw(data.x, data.y);
-		ctx.strokeStyle = User.color;
+    realDraw(data.x1, data.y1, data.x, data.y, data.color);
   });
-
-	socket.on('drawStart', function() {
-		ctx.beginPath();
-		drawing = true;
-	})
-
-	socket.on('drawEnd', function() {
-		drawing = false;
-		return ctx.closePath();
-	})
 
 	this.setColor = function(color) {
 		User.setColor(color);

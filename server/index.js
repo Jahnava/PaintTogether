@@ -87,21 +87,15 @@ io.on('connection', function (socket) {
     exitedRoom();
   });
 
-  socket.on('drawClick', function(data) {
+  socket.on('draw', function(data) {
     socket.broadcast.emit('draw', {
       color: socket.color,
       x: data.x,
       y: data.y,
+      x1: data.x1,
+      y1: data.y1
     });
   });
-
-  socket.on('drawStart', function() {
-    socket.broadcast.emit('drawStart');
-  })
-
-  socket.on('drawEnd', function() {
-    socket.broadcast.emit('drawEnd');
-  })
 
   function exitedRoom() {
     if (socket.room) {
