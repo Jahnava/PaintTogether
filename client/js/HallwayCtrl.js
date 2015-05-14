@@ -16,6 +16,7 @@ angular.module('drawTogether.hall', [])
 		room = cleanInput(room);
   	User.setRoom(room);
 		$http.post('/newRoom', {room: room}).success(function(data, status) {
+			socket.emit('added room');
 			$location.path('/room/' + encodeURIComponent(room));
 	  })
 	  .error(function(data, status) {
@@ -36,7 +37,7 @@ angular.module('drawTogether.hall', [])
 	  });
 	}
 
-	socket.on('deleted room', function(room) {
+	socket.on('rooms changed', function() {
 		getRooms();
 	})
 

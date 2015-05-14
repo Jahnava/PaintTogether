@@ -70,7 +70,11 @@ io.on('connection', function (socket) {
 
   socket.on('deleted room', function(room) {
     delete rooms[room];
-    socket.broadcast.emit('deleted room', room);
+    socket.broadcast.emit('rooms changed');
+  })
+
+  socket.on('added room', function() {
+    socket.broadcast.emit('rooms changed');
   })
 
   socket.on('changed color', function(color) {
