@@ -153,7 +153,9 @@ angular.module('drawTogether.room', [])
 	});
 
 	socket.on('draw', function(data) {
-    draw(data.x1, data.y1, data.x, data.y, data.color);
+		if (data.room === User.room && data.id !== User.id) {
+	    draw(data.x1, data.y1, data.x, data.y, data.color);
+	  }
   });
 
 	socket.on('clear', function (data){
