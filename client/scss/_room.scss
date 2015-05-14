@@ -1,3 +1,5 @@
+@import 'var-and-mix';
+
 .wholeRoom {
   background-color: lightgray;
   float: left;
@@ -68,7 +70,7 @@
   color: black;
   margin: 0px;
   display: inline-block;
-  transform: translateY(-40%);
+  @include transform(translateY(-40%));
   font-size: 2em;
 }
 
@@ -84,7 +86,7 @@
   width: 40px;
   position: relative;
   top: 47%;
-  transform: translateY(-50%);
+  @include transform(translateY(-50%));
 }
 
 .user {
@@ -105,7 +107,7 @@
   font-size: 2.5em;
   font-weight: 100;
   display: inline-block;
-  transform: translateY(-50%);
+  @include transform(translateY(-50%));
 }
 
 .otherUser {
@@ -124,7 +126,7 @@
 .otherUsername {
   font-size: 1.8em;
   display: inline-block;
-  transform: translateY(-50%);
+  @include transform(translateY(-50%));
   vertical-align: middle;
 }
 

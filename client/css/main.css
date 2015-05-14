@@ -86,6 +86,10 @@ p {
   color: black;
   margin: 0px;
   display: inline-block;
+  -moz-transform: translateY(-40%);
+  -o-transform: translateY(-40%);
+  -ms-transform: translateY(-40%);
+  -webkit-transform: translateY(-40%);
   transform: translateY(-40%);
   font-size: 2em; }
 
@@ -99,6 +103,10 @@ p {
   width: 40px;
   position: relative;
   top: 47%;
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
   transform: translateY(-50%); }
 
 .user {
@@ -117,6 +125,10 @@ p {
   font-size: 2.5em;
   font-weight: 100;
   display: inline-block;
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
   transform: translateY(-50%); }
 
 .otherUser {
@@ -133,6 +145,10 @@ p {
 .otherUsername {
   font-size: 1.8em;
   display: inline-block;
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   vertical-align: middle; }
 
