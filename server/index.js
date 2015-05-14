@@ -86,6 +86,7 @@ io.on('connection', function (socket) {
 
   socket.on('draw', function(data) {
     socket.broadcast.emit('draw', {
+      room: socket.room,
       color: socket.color,
       x: data.x,
       y: data.y,
