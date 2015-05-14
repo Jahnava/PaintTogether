@@ -11,9 +11,11 @@ angular.module('drawTogether.room', [])
 		socket.emit('entered room', User.room);
 	}
 
+
 	_this = this;
 	this.user = User;
 	this.lastUser = false;
+	this.eraseCursor = false;
 	this.colors = ['rgb(21,177,240)','rgb(52,173,101)', 'rgb(228,0,121)', 'rgb(247,159,75)', 'rgb(255,242,9)', 'rgb(113,73,151)', 'rgb(41,41,41)', 'rgb(229,0,28)', 'lightgray' ]
 
 	// User exits room if they navigate away from page
@@ -77,6 +79,7 @@ angular.module('drawTogether.room', [])
 
 	this.setColor = function(color) {
 		User.setColor(color);
+		color === 'lightgray' ? this.eraseCursor = true : this.eraseCursor = false;
 		socket.emit('changed color', color)
 		ctx.strokeStyle = color;
 		this.user = User;

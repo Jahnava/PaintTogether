@@ -15,6 +15,14 @@
   float: left;
 }
 
+.eraseCursor {
+  cursor: url(../img/erase_cursor.png) 40 40, auto;
+}
+
+.paintCursor {
+  cursor: url(../img/paint_cursor.png) 2.5 2.5, auto; 
+}
+
 .panel {
   position: absolute;
   top: 0;
