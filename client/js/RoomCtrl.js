@@ -14,7 +14,7 @@ angular.module('drawTogether.room', [])
 	_this = this;
 	this.user = User;
 	this.lastUser = false;
-	this.colors = ['rgb(21,177,240)','rgb(52,173,101)', 'rgb(228,0,121)', 'rgb(247,159,75)', 'rgb(255,242,9)', 'rgb(113,73,151)', 'rgb(41,41,41)', 'rgb(229,0,28)' ]
+	this.colors = ['rgb(21,177,240)','rgb(52,173,101)', 'rgb(228,0,121)', 'rgb(247,159,75)', 'rgb(255,242,9)', 'rgb(113,73,151)', 'rgb(41,41,41)', 'rgb(229,0,28)', 'lightgray' ]
 
 	// User exits room if they navigate away from page
 	$scope.$on('$destroy', function() {
@@ -33,6 +33,7 @@ angular.module('drawTogether.room', [])
 	function draw(xFrom, yFrom, xTo, yTo, color) {
 		ctx.beginPath(); 
 		ctx.strokeStyle = color;
+		color === 'lightgray' ? ctx.lineWidth = 80 : ctx.lineWidth = 5;
 		ctx.moveTo(xFrom, yFrom);
 		ctx.lineTo(xTo, yTo);
 		ctx.stroke();
