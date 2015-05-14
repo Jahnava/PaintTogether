@@ -1,0 +1,431 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '--save', 'canvas' ]
+2 info using npm@2.7.0
+3 info using node@v0.12.0
+4 warn package.json draw-together@0.10.33 No description
+5 warn package.json draw-together@0.10.33 No repository field.
+6 warn package.json draw-together@0.10.33 No README data
+7 silly cache add args [ 'canvas', null ]
+8 verbose cache add spec canvas
+9 silly cache add parsed spec { raw: 'canvas',
+9 silly cache add   scope: null,
+9 silly cache add   name: 'canvas',
+9 silly cache add   rawSpec: '',
+9 silly cache add   spec: '*',
+9 silly cache add   type: 'range' }
+10 verbose addNamed canvas@*
+11 silly addNamed semver.valid null
+12 silly addNamed semver.validRange *
+13 silly addNameRange { name: 'canvas', range: '*', hasData: false }
+14 silly mapToRegistry name canvas
+15 silly mapToRegistry using default registry
+16 silly mapToRegistry registry https://registry.npmjs.org/
+17 silly mapToRegistry uri https://registry.npmjs.org/canvas
+18 verbose addNameRange registry:https://registry.npmjs.org/canvas not in flight; fetching
+19 verbose request uri https://registry.npmjs.org/canvas
+20 verbose request no auth needed
+21 info attempt registry request try #1 at 5:28:33 PM
+22 verbose request using bearer token for auth
+23 verbose request id b785926d61b58b0f
+24 verbose etag "6843HH5TZSZV0WEJORUXA22GT"
+25 http request GET https://registry.npmjs.org/canvas
+26 http 304 https://registry.npmjs.org/canvas
+27 silly get cb [ 304,
+27 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 silly get     etag: '"6843HH5TZSZV0WEJORUXA22GT"',
+27 silly get     'cache-control': 'max-age=60',
+27 silly get     'accept-ranges': 'bytes',
+27 silly get     date: 'Thu, 14 May 2015 00:28:33 GMT',
+27 silly get     via: '1.1 varnish',
+27 silly get     connection: 'keep-alive',
+27 silly get     'x-served-by': 'cache-lax1428-LAX',
+27 silly get     'x-cache': 'MISS',
+27 silly get     'x-cache-hits': '0',
+27 silly get     'x-timer': 'S1431563313.359714,VS0,VE82' } ]
+28 verbose etag https://registry.npmjs.org/canvas from cache
+29 verbose get saving canvas to /Users/gibbonFace/.npm/registry.npmjs.org/canvas/.cache.json
+30 silly addNameRange number 2 { name: 'canvas', range: '*', hasData: true }
+31 silly addNameRange versions [ 'canvas',
+31 silly addNameRange   [ '0.0.1',
+31 silly addNameRange     '0.0.2',
+31 silly addNameRange     '0.0.3',
+31 silly addNameRange     '0.0.4',
+31 silly addNameRange     '0.0.5',
+31 silly addNameRange     '0.0.6',
+31 silly addNameRange     '0.0.7',
+31 silly addNameRange     '0.0.8',
+31 silly addNameRange     '0.1.0',
+31 silly addNameRange     '0.2.0',
+31 silly addNameRange     '0.2.1',
+31 silly addNameRange     '0.3.0',
+31 silly addNameRange     '0.3.1',
+31 silly addNameRange     '0.3.2',
+31 silly addNameRange     '0.3.3',
+31 silly addNameRange     '0.4.0',
+31 silly addNameRange     '0.4.1',
+31 silly addNameRange     '0.4.2',
+31 silly addNameRange     '0.4.3',
+31 silly addNameRange     '0.5.0',
+31 silly addNameRange     '0.5.1',
+31 silly addNameRange     '0.5.2',
+31 silly addNameRange     '0.5.3',
+31 silly addNameRange     '0.5.4',
+31 silly addNameRange     '0.6.0',
+31 silly addNameRange     '0.7.0',
+31 silly addNameRange     '0.7.1',
+31 silly addNameRange     '0.7.2',
+31 silly addNameRange     '0.7.3',
+31 silly addNameRange     '0.8.0',
+31 silly addNameRange     '0.8.1',
+31 silly addNameRange     '0.8.2',
+31 silly addNameRange     '0.8.3',
+31 silly addNameRange     '0.9.0',
+31 silly addNameRange     '0.10.0',
+31 silly addNameRange     '0.10.1',
+31 silly addNameRange     '0.10.2',
+31 silly addNameRange     '0.10.3',
+31 silly addNameRange     '0.11.0',
+31 silly addNameRange     '0.11.1',
+31 silly addNameRange     '0.11.2',
+31 silly addNameRange     '0.11.3',
+31 silly addNameRange     '0.12.0',
+31 silly addNameRange     '0.12.1',
+31 silly addNameRange     '0.13.0',
+31 silly addNameRange     '0.13.1',
+31 silly addNameRange     '1.0.0',
+31 silly addNameRange     '1.0.1',
+31 silly addNameRange     '1.0.2',
+31 silly addNameRange     '1.0.3',
+31 silly addNameRange     '1.0.4',
+31 silly addNameRange     '1.1.0',
+31 silly addNameRange     '1.1.1',
+31 silly addNameRange     '1.1.2',
+31 silly addNameRange     '1.1.3',
+31 silly addNameRange     '1.1.4',
+31 silly addNameRange     '1.1.5',
+31 silly addNameRange     '1.1.6',
+31 silly addNameRange     '1.2.0',
+31 silly addNameRange     '1.2.1',
+31 silly addNameRange     '1.2.2' ] ]
+32 verbose addNamed canvas@1.2.2
+33 silly addNamed semver.valid 1.2.2
+34 silly addNamed semver.validRange 1.2.2
+35 silly cache afterAdd canvas@1.2.2
+36 verbose afterAdd /Users/gibbonFace/.npm/canvas/1.2.2/package/package.json not in flight; writing
+37 verbose afterAdd /Users/gibbonFace/.npm/canvas/1.2.2/package/package.json written
+38 silly install resolved [ { name: 'canvas',
+38 silly install resolved     description: 'Canvas graphics API backed by Cairo',
+38 silly install resolved     version: '1.2.2',
+38 silly install resolved     author: { name: 'TJ Holowaychuk', email: 'tj@learnboost.com' },
+38 silly install resolved     contributors: [ [Object], [Object], [Object] ],
+38 silly install resolved     keywords:
+38 silly install resolved      [ 'canvas',
+38 silly install resolved        'graphic',
+38 silly install resolved        'graphics',
+38 silly install resolved        'pixman',
+38 silly install resolved        'cairo',
+38 silly install resolved        'image',
+38 silly install resolved        'images',
+38 silly install resolved        'pdf' ],
+38 silly install resolved     homepage: 'https://github.com/learnboost/node-canvas',
+38 silly install resolved     repository: { type: 'git', url: 'git://github.com/learnboost/node-canvas' },
+38 silly install resolved     scripts: { test: 'make test', install: 'node-gyp rebuild' },
+38 silly install resolved     dependencies: { nan: '~1.5.1' },
+38 silly install resolved     devDependencies: { express: '3.0', jade: '0.28.1', mocha: '*', should: '*' },
+38 silly install resolved     engines: { node: '>= 0.6.0' },
+38 silly install resolved     main: './lib/canvas.js',
+38 silly install resolved     gypfile: true,
+38 silly install resolved     gitHead: '9575a8f3df93e7b5aa1f1c4c3a0a36b48a3002a3',
+38 silly install resolved     bugs: { url: 'https://github.com/learnboost/node-canvas/issues' },
+38 silly install resolved     _id: 'canvas@1.2.2',
+38 silly install resolved     _shasum: '127a4941d31ef19c10e203120ec9c6f0bec9349b',
+38 silly install resolved     _from: 'canvas@*',
+38 silly install resolved     _npmVersion: '2.7.4',
+38 silly install resolved     _nodeVersion: '0.12.2',
+38 silly install resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+38 silly install resolved     maintainers: [ [Object], [Object], [Object], [Object], [Object] ],
+38 silly install resolved     dist:
+38 silly install resolved      { shasum: '127a4941d31ef19c10e203120ec9c6f0bec9349b',
+38 silly install resolved        tarball: 'http://registry.npmjs.org/canvas/-/canvas-1.2.2.tgz' },
+38 silly install resolved     directories: {},
+38 silly install resolved     _resolved: 'https://registry.npmjs.org/canvas/-/canvas-1.2.2.tgz',
+38 silly install resolved     readme: 'ERROR: No README data found!' } ]
+39 info install canvas@1.2.2 into /Users/gibbonFace/_code/drawTogether
+40 info installOne canvas@1.2.2
+41 verbose installOne of canvas to /Users/gibbonFace/_code/drawTogether not in flight; installing
+42 verbose lock using /Users/gibbonFace/.npm/_locks/canvas-8c44ff31dbae696b.lock for /Users/gibbonFace/_code/drawTogether/node_modules/canvas
+43 silly install write writing canvas 1.2.2 to /Users/gibbonFace/_code/drawTogether/node_modules/canvas
+44 silly cache addNamed cb canvas@1.2.2
+45 verbose unbuild node_modules/canvas
+46 verbose gentlyRm vacuuming /Users/gibbonFace/_code/drawTogether/node_modules/canvas
+47 verbose tar unpack /Users/gibbonFace/.npm/canvas/1.2.2/package.tgz
+48 verbose tar unpacking to /Users/gibbonFace/_code/drawTogether/node_modules/canvas
+49 verbose gentlyRm vacuuming /Users/gibbonFace/_code/drawTogether/node_modules/canvas
+50 silly gunzTarPerm modes [ '755', '644' ]
+51 silly gunzTarPerm extractEntry package.json
+52 silly gunzTarPerm extractEntry .npmignore
+53 silly gunzTarPerm extractEntry index.js
+54 silly gunzTarPerm extractEntry binding.gyp
+55 silly gunzTarPerm extractEntry Makefile
+56 silly gunzTarPerm extractEntry Readme.md
+57 silly gunzTarPerm extractEntry .gitmodules
+58 silly gunzTarPerm extractEntry .travis.yml
+59 silly gunzTarPerm extractEntry install
+60 silly gunzTarPerm extractEntry lib/bindings.js
+61 silly gunzTarPerm extractEntry lib/canvas.js
+62 silly gunzTarPerm extractEntry lib/context2d.js
+63 silly gunzTarPerm extractEntry lib/image.js
+64 silly gunzTarPerm extractEntry lib/jpegstream.js
+65 silly gunzTarPerm extractEntry lib/pixelarray.js
+66 silly gunzTarPerm extractEntry lib/pngstream.js
+67 silly gunzTarPerm extractEntry History.md
+68 silly gunzTarPerm extractEntry src/Image.h
+69 silly gunzTarPerm extractEntry src/Canvas.cc
+70 silly gunzTarPerm extractEntry src/CanvasGradient.cc
+71 silly gunzTarPerm extractEntry src/CanvasGradient.h
+72 silly gunzTarPerm extractEntry src/CanvasPattern.cc
+73 silly gunzTarPerm extractEntry src/CanvasPattern.h
+74 silly gunzTarPerm extractEntry src/CanvasRenderingContext2d.cc
+75 silly gunzTarPerm extractEntry src/CanvasRenderingContext2d.h
+76 silly gunzTarPerm extractEntry src/FontFace.cc
+77 silly gunzTarPerm extractEntry src/FontFace.h
+78 silly gunzTarPerm extractEntry src/Image.cc
+79 silly gunzTarPerm extractEntry src/Canvas.h
+80 silly gunzTarPerm extractEntry src/ImageData.cc
+81 silly gunzTarPerm extractEntry src/ImageData.h
+82 silly gunzTarPerm extractEntry src/JPEGStream.h
+83 silly gunzTarPerm extractEntry src/PNG.h
+84 silly gunzTarPerm extractEntry src/PixelArray.cc
+85 silly gunzTarPerm extractEntry src/PixelArray.h
+86 silly gunzTarPerm extractEntry src/Point.h
+87 silly gunzTarPerm extractEntry src/closure.h
+88 silly gunzTarPerm extractEntry src/color.cc
+89 silly gunzTarPerm extractEntry src/color.h
+90 silly gunzTarPerm extractEntry src/init.cc
+91 silly gunzTarPerm extractEntry util/cairo_include.sh
+92 silly gunzTarPerm extractEntry util/has_cairo_freetype.sh
+93 silly gunzTarPerm extractEntry util/has_lib.sh
+94 silly gunzTarPerm extractEntry util/lib_lookup.sh
+95 info preinstall canvas@1.2.2
+96 silly prepareForInstallMany adding nan@~1.5.1 from canvas dependencies
+97 silly cache add args [ 'nan@~1.5.1', null ]
+98 verbose cache add spec nan@~1.5.1
+99 silly cache add parsed spec { raw: 'nan@~1.5.1',
+99 silly cache add   scope: null,
+99 silly cache add   name: 'nan',
+99 silly cache add   rawSpec: '~1.5.1',
+99 silly cache add   spec: '>=1.5.1 <1.6.0',
+99 silly cache add   type: 'range' }
+100 verbose addNamed nan@>=1.5.1 <1.6.0
+101 silly addNamed semver.valid null
+102 silly addNamed semver.validRange >=1.5.1 <1.6.0
+103 silly addNameRange { name: 'nan', range: '>=1.5.1 <1.6.0', hasData: false }
+104 silly mapToRegistry name nan
+105 silly mapToRegistry using default registry
+106 silly mapToRegistry registry https://registry.npmjs.org/
+107 silly mapToRegistry uri https://registry.npmjs.org/nan
+108 verbose addNameRange registry:https://registry.npmjs.org/nan not in flight; fetching
+109 verbose request uri https://registry.npmjs.org/nan
+110 verbose request no auth needed
+111 info attempt registry request try #1 at 5:28:33 PM
+112 verbose request using bearer token for auth
+113 verbose etag "ABONJ0VTSTD2FL46Q8JL2GIDH"
+114 http request GET https://registry.npmjs.org/nan
+115 http 304 https://registry.npmjs.org/nan
+116 silly get cb [ 304,
+116 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+116 silly get     etag: '"ABONJ0VTSTD2FL46Q8JL2GIDH"',
+116 silly get     'cache-control': 'max-age=60',
+116 silly get     'accept-ranges': 'bytes',
+116 silly get     date: 'Thu, 14 May 2015 00:28:33 GMT',
+116 silly get     via: '1.1 varnish',
+116 silly get     connection: 'keep-alive',
+116 silly get     'x-served-by': 'cache-lax1427-LAX',
+116 silly get     'x-cache': 'MISS',
+116 silly get     'x-cache-hits': '0',
+116 silly get     'x-timer': 'S1431563313.701211,VS0,VE82' } ]
+117 verbose etag https://registry.npmjs.org/nan from cache
+118 verbose get saving nan to /Users/gibbonFace/.npm/registry.npmjs.org/nan/.cache.json
+119 silly addNameRange number 2 { name: 'nan', range: '>=1.5.1 <1.6.0', hasData: true }
+120 silly addNameRange versions [ 'nan',
+120 silly addNameRange   [ '0.3.0-wip',
+120 silly addNameRange     '0.3.0-wip2',
+120 silly addNameRange     '0.3.0',
+120 silly addNameRange     '0.3.1',
+120 silly addNameRange     '0.3.2',
+120 silly addNameRange     '0.4.0',
+120 silly addNameRange     '0.4.1',
+120 silly addNameRange     '0.4.2',
+120 silly addNameRange     '0.4.3',
+120 silly addNameRange     '0.4.4',
+120 silly addNameRange     '0.5.0',
+120 silly addNameRange     '0.5.1',
+120 silly addNameRange     '0.5.2',
+120 silly addNameRange     '0.6.0',
+120 silly addNameRange     '0.7.0',
+120 silly addNameRange     '0.7.1',
+120 silly addNameRange     '0.8.0',
+120 silly addNameRange     '1.0.0',
+120 silly addNameRange     '1.1.0',
+120 silly addNameRange     '1.1.1',
+120 silly addNameRange     '1.1.2',
+120 silly addNameRange     '1.2.0',
+120 silly addNameRange     '1.3.0',
+120 silly addNameRange     '1.4.0',
+120 silly addNameRange     '1.4.1',
+120 silly addNameRange     '1.5.0',
+120 silly addNameRange     '1.4.2',
+120 silly addNameRange     '1.4.3',
+120 silly addNameRange     '1.5.1',
+120 silly addNameRange     '1.5.2',
+120 silly addNameRange     '1.6.0',
+120 silly addNameRange     '1.5.3',
+120 silly addNameRange     '1.6.1',
+120 silly addNameRange     '1.6.2',
+120 silly addNameRange     '1.7.0',
+120 silly addNameRange     '1.8.0',
+120 silly addNameRange     '1.8.1',
+120 silly addNameRange     '1.8.2',
+120 silly addNameRange     '1.8.3',
+120 silly addNameRange     '1.8.4' ] ]
+121 verbose addNamed nan@1.5.3
+122 silly addNamed semver.valid 1.5.3
+123 silly addNamed semver.validRange 1.5.3
+124 silly cache afterAdd nan@1.5.3
+125 verbose afterAdd /Users/gibbonFace/.npm/nan/1.5.3/package/package.json not in flight; writing
+126 verbose afterAdd /Users/gibbonFace/.npm/nan/1.5.3/package/package.json written
+127 silly install resolved [ { name: 'nan',
+127 silly install resolved     version: '1.5.3',
+127 silly install resolved     description: 'Native Abstractions for Node.js: C++ header for Node 0.8->0.12 compatibility',
+127 silly install resolved     main: 'include_dirs.js',
+127 silly install resolved     repository: { type: 'git', url: 'git://github.com/rvagg/nan.git' },
+127 silly install resolved     scripts:
+127 silly install resolved      { test: 'tap --gc test/js/*-test.js',
+127 silly install resolved        'rebuild-tests': 'node-gyp rebuild --directory test' },
+127 silly install resolved     contributors:
+127 silly install resolved      [ [Object],
+127 silly install resolved        [Object],
+127 silly install resolved        [Object],
+127 silly install resolved        [Object],
+127 silly install resolved        [Object],
+127 silly install resolved        [Object],
+127 silly install resolved        [Object] ],
+127 silly install resolved     devDependencies:
+127 silly install resolved      { bindings: '~1.2.1',
+127 silly install resolved        'node-gyp': '~1.0.2',
+127 silly install resolved        tap: '~0.5.0',
+127 silly install resolved        xtend: '~4.0.0' },
+127 silly install resolved     license: 'MIT',
+127 silly install resolved     gitHead: '28ea7e1b769f790c69deaf141b47e4d41e176e8b',
+127 silly install resolved     bugs: { url: 'https://github.com/rvagg/nan/issues' },
+127 silly install resolved     homepage: 'https://github.com/rvagg/nan',
+127 silly install resolved     _id: 'nan@1.5.3',
+127 silly install resolved     _shasum: '4cd0ecc133b7b0700a492a646add427ae8a318eb',
+127 silly install resolved     _from: 'nan@>=1.5.1 <1.6.0',
+127 silly install resolved     _npmVersion: '2.1.18',
+127 silly install resolved     _nodeVersion: '1.0.3',
+127 silly install resolved     _npmUser: { name: 'rvagg', email: 'rod@vagg.org' },
+127 silly install resolved     maintainers: [ [Object], [Object] ],
+127 silly install resolved     dist:
+127 silly install resolved      { shasum: '4cd0ecc133b7b0700a492a646add427ae8a318eb',
+127 silly install resolved        tarball: 'http://registry.npmjs.org/nan/-/nan-1.5.3.tgz' },
+127 silly install resolved     directories: {},
+127 silly install resolved     _resolved: 'https://registry.npmjs.org/nan/-/nan-1.5.3.tgz',
+127 silly install resolved     readme: 'ERROR: No README data found!' } ]
+128 info install nan@1.5.3 into /Users/gibbonFace/_code/drawTogether/node_modules/canvas
+129 info installOne nan@1.5.3
+130 verbose installOne of nan to /Users/gibbonFace/_code/drawTogether/node_modules/canvas not in flight; installing
+131 verbose lock using /Users/gibbonFace/.npm/_locks/nan-ad453616a6ffccdd.lock for /Users/gibbonFace/_code/drawTogether/node_modules/canvas/node_modules/nan
+132 silly install write writing nan 1.5.3 to /Users/gibbonFace/_code/drawTogether/node_modules/canvas/node_modules/nan
+133 silly cache addNamed cb nan@1.5.3
+134 verbose unbuild node_modules/canvas/node_modules/nan
+135 verbose gentlyRm vacuuming /Users/gibbonFace/_code/drawTogether/node_modules/canvas/node_modules/nan
+136 verbose tar unpack /Users/gibbonFace/.npm/nan/1.5.3/package.tgz
+137 verbose tar unpacking to /Users/gibbonFace/_code/drawTogether/node_modules/canvas/node_modules/nan
+138 verbose gentlyRm vacuuming /Users/gibbonFace/_code/drawTogether/node_modules/canvas/node_modules/nan
+139 silly gunzTarPerm modes [ '755', '644' ]
+140 silly gunzTarPerm extractEntry package.json
+141 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+142 silly gunzTarPerm extractEntry README.md
+143 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+144 silly gunzTarPerm extractEntry include_dirs.js
+145 silly gunzTarPerm extractEntry LICENSE.md
+146 silly gunzTarPerm modified mode [ 'LICENSE.md', 436, 420 ]
+147 silly gunzTarPerm extractEntry .dntrc
+148 silly gunzTarPerm modified mode [ '.dntrc', 436, 420 ]
+149 silly gunzTarPerm extractEntry appveyor.yml
+150 silly gunzTarPerm modified mode [ 'appveyor.yml', 436, 420 ]
+151 silly gunzTarPerm extractEntry nan.h
+152 silly gunzTarPerm modified mode [ 'nan.h', 436, 420 ]
+153 silly gunzTarPerm extractEntry nan_implementation_12_inl.h
+154 silly gunzTarPerm modified mode [ 'nan_implementation_12_inl.h', 436, 420 ]
+155 silly gunzTarPerm extractEntry nan_implementation_pre_12_inl.h
+156 silly gunzTarPerm modified mode [ 'nan_implementation_pre_12_inl.h', 436, 420 ]
+157 silly gunzTarPerm extractEntry nan_new.h
+158 silly gunzTarPerm modified mode [ 'nan_new.h', 436, 420 ]
+159 silly gunzTarPerm extractEntry CHANGELOG.md
+160 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 420 ]
+161 info preinstall nan@1.5.3
+162 silly install resolved []
+163 verbose about to build /Users/gibbonFace/_code/drawTogether/node_modules/canvas/node_modules/nan
+164 info build /Users/gibbonFace/_code/drawTogether/node_modules/canvas/node_modules/nan
+165 verbose linkStuff [ false,
+165 verbose linkStuff   false,
+165 verbose linkStuff   false,
+165 verbose linkStuff   '/Users/gibbonFace/_code/drawTogether/node_modules/canvas/node_modules' ]
+166 info linkStuff nan@1.5.3
+167 verbose linkBins nan@1.5.3
+168 verbose linkMans nan@1.5.3
+169 verbose rebuildBundles nan@1.5.3
+170 info install nan@1.5.3
+171 info postinstall nan@1.5.3
+172 verbose unlock done using /Users/gibbonFace/.npm/_locks/nan-ad453616a6ffccdd.lock for /Users/gibbonFace/_code/drawTogether/node_modules/canvas/node_modules/nan
+173 verbose about to build /Users/gibbonFace/_code/drawTogether/node_modules/canvas
+174 info build /Users/gibbonFace/_code/drawTogether/node_modules/canvas
+175 verbose linkStuff [ false,
+175 verbose linkStuff   false,
+175 verbose linkStuff   false,
+175 verbose linkStuff   '/Users/gibbonFace/_code/drawTogether/node_modules' ]
+176 info linkStuff canvas@1.2.2
+177 verbose linkBins canvas@1.2.2
+178 verbose linkMans canvas@1.2.2
+179 verbose rebuildBundles canvas@1.2.2
+180 verbose rebuildBundles [ 'nan' ]
+181 info install canvas@1.2.2
+182 verbose unsafe-perm in lifecycle true
+183 info canvas@1.2.2 Failed to exec install script
+184 verbose unlock done using /Users/gibbonFace/.npm/_locks/canvas-8c44ff31dbae696b.lock for /Users/gibbonFace/_code/drawTogether/node_modules/canvas
+185 verbose stack Error: canvas@1.2.2 install: `node-gyp rebuild`
+185 verbose stack Exit status 1
+185 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:213:16)
+185 verbose stack     at EventEmitter.emit (events.js:110:17)
+185 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:14:12)
+185 verbose stack     at ChildProcess.emit (events.js:110:17)
+185 verbose stack     at maybeClose (child_process.js:1008:16)
+185 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1080:5)
+186 verbose pkgid canvas@1.2.2
+187 verbose cwd /Users/gibbonFace/_code/drawTogether
+188 error Darwin 14.3.0
+189 error argv "node" "/usr/local/bin/npm" "install" "--save" "canvas"
+190 error node v0.12.0
+191 error npm  v2.7.0
+192 error code ELIFECYCLE
+193 error canvas@1.2.2 install: `node-gyp rebuild`
+193 error Exit status 1
+194 error Failed at the canvas@1.2.2 install script 'node-gyp rebuild'.
+194 error This is most likely a problem with the canvas package,
+194 error not with npm itself.
+194 error Tell the author that this fails on your system:
+194 error     node-gyp rebuild
+194 error You can get their info via:
+194 error     npm owner ls canvas
+194 error There is likely additional logging output above.
+195 verbose exit [ 1, true ]
+196 verbose unbuild node_modules/canvas
+197 info preuninstall canvas@1.2.2
+198 info uninstall canvas@1.2.2
+199 verbose unbuild rmStuff canvas@1.2.2 from /Users/gibbonFace/_code/drawTogether/node_modules
+200 info postuninstall canvas@1.2.2
+201 verbose gentlyRm vacuuming /Users/gibbonFace/_code/drawTogether/node_modules/canvas
+202 silly gentlyRm purging /Users/gibbonFace/_code/drawTogether/node_modules/canvas
+203 silly gentlyRm quitting because other entries in /Users/gibbonFace/_code/drawTogether/node_modules

@@ -18,22 +18,66 @@ angular.module('drawTogether.room', [])
 		socket.emit('exited room');
 	});
 
-	var canvas = new fabric.Canvas('c', {
-		backgroundColor: 'dimgray',
-		isDrawingMode: true
+	var offset, x, y;
+	var canvas = document.getElementById('canvas');
+	var ctx = canvas.getContext('2d');
+	ctx.fillStyle = "solid";
+	ctx.lineWidth = 5;
+	ctx.lineCap = "round";
+	ctx.strokeStyle = User.color;
+	
+
+	var drawing = false;
+
+	function draw(x, y) {
+	  ctx.lineTo(x, y);
+	  return ctx.stroke();
+	};
+
+	canvas.addEventListener('mousedown', function(e) {
+	  ctx.beginPath();
+	  drawing = true;
+	})
+
+	canvas.addEventListener('mouseup', function(e) {
+	  drawing = false;
+	  socket.emit('drawEnd');
+	  ctx.closePath();
+	})
+
+	canvas.addEventListener('mousemove', function(e) {
+	  if (drawing) {
+	    x = e.offsetX;
+	    y = e.offsetY;
+	    draw(x, y);
+	    socket.emit('drawClick', {
+	      x: x,
+	      y: y,
+	    });
+	  }
 	});
 
-	if (canvas.freeDrawingBrush) {
-	  canvas.freeDrawingBrush.color = User.color;
-	  canvas.freeDrawingBrush.width = 5
-	}
+	socket.on('draw', function(data) {
+		ctx.strokeStyle = data.color;
+    draw(data.x, data.y);
+		ctx.strokeStyle = User.color;
+  });
 
+	socket.on('drawStart', function() {
+		ctx.beginPath();
+		drawing = true;
+	})
+
+	socket.on('drawEnd', function() {
+		drawing = false;
+		return ctx.closePath();
+	})
 
 	this.setColor = function(color) {
 		User.setColor(color);
 		socket.emit('changed color', color)
+		ctx.strokeStyle = color;
 		this.user = User;
-		canvas.freeDrawingBrush.color = User.color;
 	}
 
 
@@ -56,23 +100,22 @@ angular.module('drawTogether.room', [])
 			}
 		    $scope.$apply();
 		}
-	})
+	});
 
 	socket.on('exited room', function (data){
 		if (data.room === User.room) { 
 			delete _this.users[data.user];
 	    $scope.$apply();
 		}
-	})
+	});
 
 	socket.on('changed color', function (data){
 		console.log(data);
 		if (data.room === User.room) { 
-			console.log("SAME ROOM!")
 			_this.users[data.user].color = data.color
 	    $scope.$apply();
 		}
-	})
+	});
 
 }]);
 

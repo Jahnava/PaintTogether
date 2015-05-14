@@ -19,10 +19,8 @@ app.use(express.static(__dirname + '/..'));
 var rooms = {
   Lobby: {
     name: 'Lobby',
-    users: {
-      user1: {name: 'user1', color: 'rgb(228,0,121)'},
-      user2: {name: 'user2', color: 'rgb(247,159,75)'}
-    }
+    users: {},
+    canvas: ''
   }
 };
 
@@ -36,7 +34,7 @@ app.get('/room/:id', function(req,res) {
 
 app.post('/newRoom', function(req,res) {
   var room = req.body.room
-  rooms[room] = {name: room, users: {}};
+  rooms[room] = {name: room, users: {}, canvas: ''};
   res.end(room);
 })
 
@@ -88,6 +86,22 @@ io.on('connection', function (socket) {
     console.log(socket.username + ' DISCONNECTED')
     exitedRoom();
   });
+
+  socket.on('drawClick', function(data) {
+    socket.broadcast.emit('draw', {
+      color: socket.color,
+      x: data.x,
+      y: data.y,
+    });
+  });
+
+  socket.on('drawStart', function() {
+    socket.broadcast.emit('drawStart');
+  })
+
+  socket.on('drawEnd', function() {
+    socket.broadcast.emit('drawEnd');
+  })
 
   function exitedRoom() {
     if (socket.room) {

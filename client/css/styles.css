@@ -28,9 +28,15 @@ p {
   background-color: black;
 }
 
-#c {
-  margin: 0 auto;
+.view {
+  margin: -10px -8px;
+}
+
+#canvas {
+  margin: 0px 0px;
   text-align: center;
+  background-color: dimgray;
+  overflow: hidden;
 }
 
 .circle {
@@ -98,6 +104,11 @@ p {
 
 .newRoom {
   margin-top: 50px;
+}
+
+.wholeRoom {
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .exit {

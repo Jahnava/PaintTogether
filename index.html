@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<div ng-controller="MainCtrl as main">
-			<div ng-view></div>
+			<div class='view' ng-view></div>
 		</div>
 
   	<script src="node_modules/angular/angular.js"></script>
@@ -16,8 +16,11 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-  	<script src="lib/fabric.js-master/dist/fabric.js"></script>
+    <script src="lib/fabric.js-master/dist/fabric.js"></script>
+  	<script src="lib/paperjs/dist/paper-full.js"></script>
+    <script src="lib/jquery/jquery.event.drag-2.0.js"></script>
     <script src="client/app.js"></script>
+    <script src="client/js/drawBind.directive.js"></script>
     <script src="client/js/User.js"></script>
     <script src="client/js/MainCtrl.js"></script>
     <script src="client/js/HallwayCtrl.js"></script>

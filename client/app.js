@@ -2,6 +2,7 @@
 
 angular.module('drawTogether', [
   'ngRoute',
+  'drawTogether.drawing',
   'drawTogether.main',
   'drawTogether.hall',
   'drawTogether.room'
