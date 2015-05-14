@@ -18,7 +18,6 @@ angular.module('drawTogether.room', [])
 		socket.emit('exited room');
 	});
 
-	var offset, x, y, x1, y1;
 	var canvas = document.getElementById('canvas');
 	var ctx = canvas.getContext('2d');
 	ctx.fillStyle = "solid";
@@ -44,18 +43,23 @@ angular.module('drawTogether.room', [])
 
 	canvas.addEventListener('mouseup', function(e) {
 	  drawing = false;
-	  socket.emit('image data', {
-	  	room: User.room,
-	  	imageData: canvas.toDataURL("image/png")
-		});
+	  saveCanvas();
 	})
 
 	canvas.addEventListener('mousemove', function(e) {
 	  if (drawing) {
-	  	x1 = e.offsetX - e.movementX;
-	  	y1 = e.offsetY - e.movementY;
-	    x = e.offsetX;
-	    y = e.offsetY;
+			var x, y, x1, y1, movementX, movementY;
+	  	if (/Firefox/.test(navigator.userAgent)) {
+				movementX = e.mozMovementX;
+				movementY = e.mozMovementY;
+	  	} else if (/Chrome/.test(navigator.userAgent)) {
+				movementX = e.movementX;
+				movementY = e.movementY;
+	  	}
+	  	x1 = e.layerX - movementX;
+	  	y1 = e.layerY - movementY;
+	    x = e.layerX;
+	    y = e.layerY;
 	    draw(x1, y1, x, y, User.color);
 	    socket.emit('draw', {
 	      x: x,
@@ -80,6 +84,7 @@ angular.module('drawTogether.room', [])
 
 	this.clearCanvas = function() {
 		ctx.clearRect (0, 0, canvas.width, canvas.height );
+		saveCanvas();
 	}
 
 
@@ -100,6 +105,13 @@ angular.module('drawTogether.room', [])
 	  .error(function(data, status) {
 	    console.log("Could not get room info", status);
 	  });
+	}
+
+	function saveCanvas() {
+	  socket.emit('image data', {
+	  	room: User.room,
+	  	imageData: canvas.toDataURL("image/png")
+		});
 	}
 
 	socket.on('entered room', function (data){

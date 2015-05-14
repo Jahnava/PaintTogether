@@ -17,16 +17,6 @@ angular.module('drawTogether.main', [])
 		$location.path('/hallway');
 		socket.emit('add user', {name: User.name, color: color});
 	}
-
-
-	var canvas = new fabric.Canvas('c', {
-		isDrawingMode: true
-	});
-
-	if (canvas.freeDrawingBrush) {
-	  canvas.freeDrawingBrush.color = 'black'
-	  canvas.freeDrawingBrush.width = 5
-	}
-
+	
 }]);
 

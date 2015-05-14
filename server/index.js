@@ -12,10 +12,8 @@ server.listen(port, function () {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-// Routing
 app.use(express.static(__dirname + '/..'));
 
-// usernames which are currently connected to the chat
 var rooms = {
   Lobby: {
     name: 'Lobby',
@@ -39,15 +37,9 @@ app.post('/newRoom', function(req,res) {
   res.end(room);
 })
 
-app.post('/room/:id', function(req, res) {
-  console.log(req.body);
-})
-
 io.on('connection', function (socket) {
   var addedUser = false;
-  // when the client emits 'new message', this listens and executes
   socket.on('new message', function (data) {
-    // we tell the client to execute 'new message'
     socket.broadcast.emit('new message', {
       username: socket.username,
       message: data
@@ -88,7 +80,6 @@ io.on('connection', function (socket) {
   });
 
   socket.on('disconnect', function() {
-    console.log(socket.username + ' DISCONNECTED')
     exitedRoom();
   });
 
@@ -103,7 +94,6 @@ io.on('connection', function (socket) {
   });
 
   socket.on('image data', function(data) {
-    console.log(data.imageData);
     rooms[data.room].canvas = data.imageData;
   })
 
