@@ -1,10 +1,14 @@
 <div class="wholeRoom">
 	<div class="canvas">
-		<canvas id="canvas" width="1300" height="1300"></canvas>
+		<canvas id="canvas" width="1000" height="800"></canvas>
 		<a class="exit" href="#/hallway">
 			<img src="client/img/exit.png" class="exitIcon"></img>
 			<h1 class="exitText"> Exit Room </h1>
 		</a>
+		<div class="clear" ng-click="room.clearCanvas()">
+		<img src="client/img/eraser.png" class="eraserIcon"></img>
+			<h1 class="clearText">Clear Canvas</h1>
+		</div>
 	</div>
 	<div class="panel">
 		<div class="user">

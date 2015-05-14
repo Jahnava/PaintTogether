@@ -6,7 +6,7 @@ angular.module('drawTogether.room', [])
 	if (!User.name) { $location.path('/index') }
 	else { 
 		socket = User.socket;
-		getUsers(); 
+		getRoomState(); 
 		socket.emit('entered room', User.room);
 	}
 
@@ -29,12 +29,7 @@ angular.module('drawTogether.room', [])
 
 	var drawing = false;
 
-	function draw(x, y) {
-	  ctx.lineTo(x, y);
-	  return ctx.stroke();
-	};
-
-	function realDraw(xFrom, yFrom, xTo, yTo, color) {
+	function draw(xFrom, yFrom, xTo, yTo, color) {
 		ctx.beginPath(); 
 		ctx.strokeStyle = color;
 		ctx.moveTo(xFrom, yFrom);
@@ -49,6 +44,10 @@ angular.module('drawTogether.room', [])
 
 	canvas.addEventListener('mouseup', function(e) {
 	  drawing = false;
+	  socket.emit('image data', {
+	  	room: User.room,
+	  	imageData: canvas.toDataURL("image/png")
+		});
 	})
 
 	canvas.addEventListener('mousemove', function(e) {
@@ -57,7 +56,7 @@ angular.module('drawTogether.room', [])
 	  	y1 = e.offsetY - e.movementY;
 	    x = e.offsetX;
 	    y = e.offsetY;
-	    realDraw(x1, y1, x, y, User.color);
+	    draw(x1, y1, x, y, User.color);
 	    socket.emit('draw', {
 	      x: x,
 	      y: y,
@@ -69,7 +68,7 @@ angular.module('drawTogether.room', [])
 	});
 
 	socket.on('draw', function(data) {
-    realDraw(data.x1, data.y1, data.x, data.y, data.color);
+    draw(data.x1, data.y1, data.x, data.y, data.color);
   });
 
 	this.setColor = function(color) {
@@ -79,12 +78,24 @@ angular.module('drawTogether.room', [])
 		this.user = User;
 	}
 
+	this.clearCanvas = function() {
+		ctx.clearRect (0, 0, canvas.width, canvas.height );
+	}
 
-	function getUsers() {
+
+	function getRoomState() {
 		$http.get('/room/' + User.room).success(function(data, status) {
 			var users = data.users
 			delete users[User.name];
 			_this.users = users;
+			if (data.canvas) {
+				console.log(data.canvas);
+				var imageObj = new Image();
+        imageObj.onload = function() {
+        	ctx.drawImage(this, 0, 0);
+       	};
+       	imageObj.src = data.canvas;
+			}
 	  })
 	  .error(function(data, status) {
 	    console.log("Could not get room info", status);
@@ -97,7 +108,7 @@ angular.module('drawTogether.room', [])
 				name: data.user,
 				color: data.color
 			}
-		    $scope.$apply();
+	    $scope.$apply();
 		}
 	});
 

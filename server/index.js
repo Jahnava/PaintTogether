@@ -2,8 +2,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var port = process.env.PORT || 3000;
@@ -12,6 +10,8 @@ server.listen(port, function () {
   console.log('Server listening at port %d', port);
 });
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 // Routing
 app.use(express.static(__dirname + '/..'));
 
@@ -20,12 +20,13 @@ var rooms = {
   Lobby: {
     name: 'Lobby',
     users: {},
-    canvas: ''
   }
 };
 
 app.get('/hallway', function(req,res) {
-  res.end(JSON.stringify(rooms));
+  var roomList = [];
+  for (var room in rooms) { roomList.push(room); }
+  res.end(JSON.stringify(roomList));
 })
 
 app.get('/room/:id', function(req,res) {
@@ -36,6 +37,10 @@ app.post('/newRoom', function(req,res) {
   var room = req.body.room
   rooms[room] = {name: room, users: {}, canvas: ''};
   res.end(room);
+})
+
+app.post('/room/:id', function(req, res) {
+  console.log(req.body);
 })
 
 io.on('connection', function (socket) {
@@ -82,7 +87,7 @@ io.on('connection', function (socket) {
     });
   });
 
-  socket.on('disconnect', function () {
+  socket.on('disconnect', function() {
     console.log(socket.username + ' DISCONNECTED')
     exitedRoom();
   });
@@ -96,6 +101,11 @@ io.on('connection', function (socket) {
       y1: data.y1
     });
   });
+
+  socket.on('image data', function(data) {
+    console.log(data.imageData);
+    rooms[data.room].canvas = data.imageData;
+  })
 
   function exitedRoom() {
     if (socket.room) {
