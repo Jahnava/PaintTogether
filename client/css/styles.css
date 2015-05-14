@@ -162,6 +162,7 @@ p {
 .user {
   height: 100px;
   margin-bottom: 20px;
+  word-wrap: break-word;
 }
 
 .userColor {

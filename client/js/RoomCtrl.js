@@ -41,12 +41,13 @@ angular.module('drawTogether.room', [])
 	  drawing = true;
 	})
 
-	canvas.addEventListener('mouseup', function(e) {
+	window.addEventListener('mouseup', function(e) {
 	  drawing = false;
 	  saveCanvas();
 	})
 
 	canvas.addEventListener('mousemove', function(e) {
+		e.preventDefault();
 	  if (drawing) {
 			var x, y, x1, y1, movementX, movementY;
 	  	if (/Firefox/.test(navigator.userAgent)) {
