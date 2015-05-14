@@ -90,12 +90,8 @@ angular.module('drawTogether.room', [])
 	}
 
 	this.deleteRoom = function() {
-		$http.delete('/room/' + User.room).success(function(data,success) {
-			$location.path('/hallway');
-		})
-		.error(function(data, status) {
-	    console.log("Could not delete room", status);
-	  });
+		socket.emit('deleted room', User.room);
+		$location.path('/hallway');
 	}
 
 

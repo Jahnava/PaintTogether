@@ -4,13 +4,8 @@ angular.module('drawTogether.hall', [])
 	if (!User.name) { $location.path('/index'); }
 	
 	var _this = this;
-
-	$http.get('/hallway').success(function(data, status) {
-    _this.rooms = data;
-  })
-  .error(function(data, status) {
-    console.log("Could not get rooms");
-  });
+	var socket = User.socket;
+	getRooms();
 	
   this.enterRoom = function(room) {
   	User.setRoom(room);
@@ -31,6 +26,19 @@ angular.module('drawTogether.hall', [])
 	function cleanInput (input) {
 	  return $('<div/>').text(input).text();
 	}
+
+	function getRooms() {
+		$http.get('/hallway').success(function(data, status) {
+	    _this.rooms = data;
+	  })
+	  .error(function(data, status) {
+	    console.log("Could not get rooms");
+	  });
+	}
+
+	socket.on('deleted room', function(room) {
+		getRooms();
+	})
 
 }]);
 
