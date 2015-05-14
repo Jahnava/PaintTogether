@@ -35,7 +35,7 @@ p {
 #canvas {
   margin: 0px 0px;
   text-align: center;
-  background-color: dimgray;
+  background-color: lightgray;
 }
 
 .canvas {
@@ -112,6 +112,7 @@ p {
 .wholeRoom {
   overflow-y: hidden;
   overflow-x: hidden;
+  background-color: lightgray;
 }
 
 .exit {
