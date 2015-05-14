@@ -83,8 +83,9 @@ angular.module('drawTogether.room', [])
 	}
 
 	this.clearCanvas = function() {
-		ctx.clearRect (0, 0, canvas.width, canvas.height );
+		ctx.clearRect (0, 0, canvas.width, canvas.height);
 		saveCanvas();
+		socket.emit('clear', {room: User.room});
 	}
 
 
@@ -138,6 +139,12 @@ angular.module('drawTogether.room', [])
 	    $scope.$apply();
 		}
 	});
+
+	socket.on('clear', function (data){
+		if (data.room === User.room) {
+			ctx.clearRect (0, 0, canvas.width, canvas.height);
+		}
+	})
 
 }]);
 

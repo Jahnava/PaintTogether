@@ -79,10 +79,6 @@ io.on('connection', function (socket) {
     });
   });
 
-  socket.on('disconnect', function() {
-    exitedRoom();
-  });
-
   socket.on('draw', function(data) {
     socket.broadcast.emit('draw', {
       color: socket.color,
@@ -96,6 +92,15 @@ io.on('connection', function (socket) {
   socket.on('image data', function(data) {
     rooms[data.room].canvas = data.imageData;
   })
+
+  socket.on('clear', function(room) {
+    socket.broadcast.emit('clear', room);
+  })
+
+  socket.on('disconnect', function() {
+    exitedRoom();
+  });
+
 
   function exitedRoom() {
     if (socket.room) {
