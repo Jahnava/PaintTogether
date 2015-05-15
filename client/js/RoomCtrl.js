@@ -46,6 +46,14 @@ angular.module('drawTogether.room', [])
 
 	canvas.addEventListener('mousedown', function(e) {
 	  drawing = true;
+	  draw(e.layerX-1, e.layerY, e.layerX, e.layerY, User.color);
+	  socket.emit('draw', {
+	    x: e.layerX,
+	    y: e.layerY,
+	    x1: e.layerX-1,
+	    y1: e.layerY,
+	    color: User.color
+	  });
 	})
 
 	window.addEventListener('mouseup', function(e) {
