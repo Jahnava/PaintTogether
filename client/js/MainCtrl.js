@@ -9,7 +9,7 @@
 		var main = this;
 		var socket = User.socket;
 
-		main.colors = ['rgb(21,177,240)','rgb(52,173,101)', 'rgb(228,0,121)', 'rgb(247,159,75)', 'rgb(255,242,9)', 'rgb(113,73,151)', 'rgb(41,41,41)', 'rgb(229,0,28)' ]
+		main.colors = ['rgb(21,177,240)','rgb(52,173,101)', 'rgb(228,0,121)', 'rgb(247,159,75)', 'rgb(255,242,9)', 'rgb(113,73,151)', 'rgb(41,41,41)', 'rgb(229,0,28)'];
 		
 		main.setUsername = function(name) {
 			name = cleanInput(name);
@@ -27,7 +27,6 @@
 
 		function cleanInput (input) {
 		  return $('<div/>').text(input).text();
-		}
-		
-	};
+		}	
+	}
 })();

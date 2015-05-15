@@ -44,7 +44,6 @@
 
 		socket.on('rooms changed', function() {
 			getRooms();
-		})
-
-	};
+		});
+	}
 })();	

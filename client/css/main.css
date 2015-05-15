@@ -3,11 +3,6 @@ html {
   -webkit-font-smoothing: antialiased; }
 
 html, input, h1, h2, h3, h4, h5, h6, p, a, div, img {
-  -moz-user-select: none;
-  -o-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
   font-family: "HelveticaNeue-Light",
     "Helvetica Neue Light",
     "Helvetica Neue",
@@ -18,6 +13,13 @@ html, input, h1, h2, h3, h4, h5, h6, p, a, div, img {
   color: white;
   text-decoration: none;
   font-weight: 100; }
+
+h1, h2, h3, h4, h5, h6, p, a, div, img {
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none; }
 
 p {
   margin: 0px 0px; }
