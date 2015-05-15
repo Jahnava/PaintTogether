@@ -32,6 +32,8 @@ angular.module('drawTogether.room', [])
 	ctx.strokeStyle = User.color;
 	var drawing = false;
 
+	/************* DRAWING FUNCTIONS ***************/
+
 	function draw(xFrom, yFrom, xTo, yTo, color) {
 		ctx.beginPath(); 
 		ctx.strokeStyle = color;
@@ -90,7 +92,17 @@ angular.module('drawTogether.room', [])
 		ctx.clearRect (0, 0, canvas.width, canvas.height);
 		saveCanvas();
 		socket.emit('clear', {room: User.room});
+		this.clearSure = false;
 	}
+
+	function saveCanvas() {
+	  socket.emit('image data', {
+	  	room: User.room,
+	  	imageData: canvas.toDataURL("image/png")
+		});
+	}
+
+	/***************** ROOM FUNCTIONS ****************/
 
 	this.deleteRoom = function() {
 		socket.emit('deleted room', User.room);
@@ -118,14 +130,6 @@ angular.module('drawTogether.room', [])
 	    console.log("Could not get room info", status);
 	  });
 	}
-
-	function saveCanvas() {
-	  socket.emit('image data', {
-	  	room: User.room,
-	  	imageData: canvas.toDataURL("image/png")
-		});
-	}
-
 
 	/************* SOCKET LISTENERS *************/
 

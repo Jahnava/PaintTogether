@@ -9,9 +9,15 @@
 			<h1 class="deleteText">Delete Room</h1>
 			<img src="client/img/delete.png" class="deleteIcon"></img>
 		</div>
-		<div class="clear" ng-click="room.clearCanvas()">
-		<img src="client/img/bucket.png" class="bucketIcon"></img>
-			<h1 class="clearText">Clear Canvas</h1>
+		<div class="clear">
+			<div class="clearBucket" ng-if="!room.clearSure" ng-click="room.clearSure=true">
+				<img src="client/img/bucket.png" class="bucketIcon"></img>
+				<h1 class="clearText">Clear Canvas</h1>
+			</div>
+			<div class="clearSure" ng-if="room.clearSure">
+				<h1 class="clearText cancel" ng-click="room.clearSure=false"> Cancel </h1>
+				<h1 class="clearText sure" ng-click="room.clearCanvas()"> Clear It! </h1>
+			</div>
 		</div>
 	</div>
 	<div class="panel">

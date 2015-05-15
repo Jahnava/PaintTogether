@@ -74,6 +74,15 @@
   font-size: 2em;
 }
 
+.cancel {
+  color: red;
+}
+
+.sure {
+  color: green;
+  margin-left: 25px; 
+}
+
 .exitIcon, .deleteIcon {
   width: 50px;
 }
