@@ -8,3 +8,11 @@
   -webkit-transform: $transforms;
           transform: $transforms;
 }
+
+@mixin user-select($select) {
+     -moz-user-select: $select;
+       -o-user-select: $select;
+      -ms-user-select: $select;
+  -webkit-user-select: $select;
+          user-select: $select;
+}

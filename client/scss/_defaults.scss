@@ -1,9 +1,12 @@
+@import 'var-and-mix';
+
 html {
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
 }
 
-html, input, h1, h2, h3, h4, h5, h6, p, a {
+html, input, h1, h2, h3, h4, h5, h6, p, a, div, img {
+  @include user-select(none);
   font-family:
     "HelveticaNeue-Light",
     "Helvetica Neue Light",

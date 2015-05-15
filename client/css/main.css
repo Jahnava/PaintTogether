@@ -2,7 +2,12 @@ html {
   font-weight: 300;
   -webkit-font-smoothing: antialiased; }
 
-html, input, h1, h2, h3, h4, h5, h6, p, a {
+html, input, h1, h2, h3, h4, h5, h6, p, a, div, img {
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   font-family: "HelveticaNeue-Light",
     "Helvetica Neue Light",
     "Helvetica Neue",
@@ -187,6 +192,10 @@ p {
   position: absolute;
   text-align: center;
   top: 50%;
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   width: 100%; }
 
