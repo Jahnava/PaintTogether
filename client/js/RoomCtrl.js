@@ -120,7 +120,9 @@
 
 
 		function getRoomState() {
+			console.log("getting state")
 			$http.get('/room/' + User.room).success(function(data, status) {
+				console.log("state received")
 				var users = data.users
 				delete users[User.id];
 				room.users = users;
