@@ -35,6 +35,7 @@
 		ctx.lineCap = "round";
 		ctx.strokeStyle = User.color;
 		var drawing = false;
+		var safariPrevX, safariPrevY;
 
 		/************* DRAWING FUNCTIONS ***************/
 
@@ -50,6 +51,10 @@
 
 		canvas.addEventListener('mousedown', function(e) {
 		  drawing = true;
+		  if (/Safari/.test(navigator.userAgent)) {
+			  safariPrevX = e.layerX;
+			  safariPrevY = e.layerY;
+			}
 		  draw(e.layerX-1, e.layerY, e.layerX, e.layerY, User.color);
 		  socket.emit('draw', {
 		    x: e.layerX,
@@ -75,6 +80,11 @@
 		  	} else if (/Chrome/.test(navigator.userAgent)) {
 					movementX = e.movementX;
 					movementY = e.movementY;
+		  	} else if (/Safari/.test(navigator.userAgent)) {
+					movementX = e.layerX - safariPrevX;
+					movementY = e.layerY - safariPrevY;
+					safariPrevX = e.layerX;
+					safariPrevY = e.layerY;
 		  	}
 		  	x1 = e.layerX - movementX;
 		  	y1 = e.layerY - movementY;
