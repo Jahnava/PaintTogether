@@ -24,6 +24,7 @@
 		// User exits room if they navigate away from page
 		$scope.$on('$destroy', function() {
 			socket.emit('exited room');
+			delete User.room;
 		});
 
 		// Set canvas  defaults
@@ -120,16 +121,16 @@
 
 
 		function getRoomState() {
-			console.log("getting state")
 			$http.get('/room/' + User.room).success(function(data, status) {
-				console.log("state received")
-				var users = data.users
-				delete users[User.id];
-				room.users = users;
-				if (!Object.keys(users).length) { room.lastUser = true; }
+				room.users = {};
+				if (data.users) {
+					debugger;
+					room.users = data.users
+					delete room.users[User.id];
+				} 
+				if (!Object.keys(room.users).length) { room.lastUser = true; }
 				// Load/render canvas state
 				if (data.canvas) {
-					console.log(data.canvas);
 					var imageObj = new Image();
 	        imageObj.onload = function() {
 	        	ctx.drawImage(this, 0, 0);
@@ -156,7 +157,7 @@
 		});
 
 		socket.on('exited room', function (data){
-			if (data.room === User.room) { 
+			if (data.room === User.room && data.id !== User.id) { 
 				delete room.users[data.id];
 				Object.keys(room.users).length ? room.lastUser = false : room.lastUser = true;
 		    $scope.$apply();
@@ -170,7 +171,7 @@
 			}
 		});
 
-		socket.on('draw', function(data) {
+		socket.on('draw', function (data) {
 			if (data.room === User.room && data.id !== User.id) {
 		    draw(data.x1, data.y1, data.x, data.y, data.color);
 		  }
