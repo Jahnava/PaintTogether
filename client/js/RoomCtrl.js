@@ -124,7 +124,6 @@
 			$http.get('/room/' + User.room).success(function(data, status) {
 				room.users = {};
 				if (data.users) {
-					debugger;
 					room.users = data.users
 					delete room.users[User.id];
 				} 
