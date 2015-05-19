@@ -10,6 +10,7 @@
 		
 		var hall = this;
 		var socket = User.socket;
+		hall.loadingRooms = true;
 		getRooms();
 		
 	  hall.enterRoom = function(room) {
@@ -36,6 +37,7 @@
 		function getRooms() {
 			$http.get('/hallway').success(function(data, status) {
 		    hall.rooms = data;
+		    hall.loadingRooms = false;
 		  })
 		  .error(function(data, status) {
 		    console.log("Could not get rooms");

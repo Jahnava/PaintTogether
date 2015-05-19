@@ -2,6 +2,7 @@
 	<div class="hallway">
 		<div class="chooseRoom">
 			<h1 class="title"> Choose a room... </h1>
+				<img src="client/img/loader.gif" ng-if="hall.loadingRooms"></img>
 				<button ng-repeat="room in hall.rooms" class="roomButton" ng-click="hall.enterRoom(room)">{{room}}</button>
 		</div>
 		<h1 class="title newRoom"> ...or create a new one </h1>

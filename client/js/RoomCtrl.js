@@ -11,7 +11,8 @@
 		if (!User.name) { $location.path('/index') }
 		else { 
 			socket = User.socket;
-			getRoomState(); 
+			if (!User.room) { User.room = decodeURIComponent(decodeURIComponent(window.location.href.split('room/')[1])); } 
+			getRoomState();
 			socket.emit('entered room', User.room);
 		}
 
